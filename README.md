@@ -2,7 +2,7 @@
 
 ## General Implementation:
 
-## ItemStoreClient
+### ItemStoreClient
 
 The ItemStoreClient file interacts with a remote ItemStore Server. This section will include a
 general overview of how the methods were created and may not include some minor details that
@@ -115,9 +115,11 @@ This constructor starts the server and waits for a connection. The method begins
 the hashmap and server socket on the given port. Once the server has started, we enter a while
 loop which lasts forever; this is so the server will always be listening for a connection (this
 means the server must be manually shut down). In this while loop, the server attempts to accept
-connections and once it received one, it initializes the three input/output streams (DataOutputStream, DataInputStream, ObjectOutputStream). Once this is done, we enter another while loop which continues until the client disconnects. This 
-inner while loop reads in an integer and based on the integer sent, it knows which command the client wishes to use (put = 0, get = 1,list = 2, remove = 3, disconnect = 4). If the client calls disconnect, we break out of this inner
-while loop and wait for further connections.
+connections and once it received one, it initializes the three input/output streams (DataOutputStream, 
+DataInputStream, ObjectOutputStream). Once this is done, we enter another while loop which continues 
+until the client disconnects. This inner while loop reads in an integer and based on the integer sent, 
+it knows which command the client wishes to use (put = 0, get = 1,list = 2, remove = 3, disconnect = 4). 
+If the client calls disconnect, we break out of this inner while loop and wait for further connections.
 
 private void putServer() throws IOException {
 
