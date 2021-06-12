@@ -166,11 +166,11 @@ ObjectOutputStream. We first create a Set of Strings to hold the key set of the 
 create a string array and convert the set to a string array. Once this is done, we simply send the
 string array to the client through the ObjectOutputStream.
 
-## Questions and Answers
+## Notes/Subjects to Note On
 
-### How does the client and server handle the different object store operations? Describe the design and implementation of your communication protocol.
+### The design and implementation of your communication protocol.
 
-I am including these questions together as a lot of the implementation designs are described
+A lot of the implementation designs are described
 under General Implementation. However, the communication protocol of the server and client do
 tend to follow a certain structure. The client sends an integer to the server to indicate to the
 server which command is about to be processed. Afterwards, the client would normally send
@@ -178,13 +178,13 @@ another integer with the size of the key, followed by the key itself. Depending 
 client may or may not receive some sort of error/duplication check on the key. After this the data
 length of the data and then the data itself is either sent or received to/from the server’s store.
 
-### What kind of data structures did you use to store and retrieve your data objects?
+### Data Structures Used
 
 The server uses a HashMap with a String key and Byte Array value. All data (keys and values)
 would be converted to a byte array to send between the client and server. They would be
 converted back when ItemStoreClient returns the values to the original client.
 
-### Do you think your implementation could be better? What was the hardest parts about implementing your project and how did you overcome them?
+### Difficulties/Where to Improve
 
 Very much so. I do not believe I implemented this project in the best capacity possible. I have
 never done socket programming in Java before and even when I have done socket programming
